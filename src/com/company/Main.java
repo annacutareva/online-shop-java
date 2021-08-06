@@ -48,7 +48,7 @@ public class Main {
             if (continueShopping.equalsIgnoreCase("y")) {
             order();
             } else {
-                System.out.println("Your order is " + shoppingCart.toString());
+                System.out.println("Your order is " + shoppingCart);
                 System.out.println("Your total is " + total + "$");
                 System.out.println("Would you like to place an order? Press Y for Yes or N for No");
                 placeOrder = input.next();
