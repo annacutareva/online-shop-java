@@ -12,9 +12,9 @@ public class Product {
         this.price = price;
     }
 
-    public void showInfo() {
+    public String toString() {
 
-        System.out.println("Name: " + this.name + "       Price: $" + this.price);
+        return "Name: " + this.name + " Price: $" + this.price + '\n';
     }
 
     public int getId() {

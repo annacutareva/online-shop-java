@@ -1,5 +1,6 @@
 package com.company;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
@@ -10,22 +11,19 @@ public class Main {
     public static double total = 0;
     public static double[] prices = {0.00, 10.00, 20.00, 30.00, 40.00, 50.00, 60.00};
 
+    public static ArrayList<Product> products = new ArrayList<>();
+
     public static void products() {
-        Product product1 = new Product(1, "Product 1", 10.00);
-        Product product2 = new Product(2, "Product 2", 20.00);
-        Product product3 = new Product(3, "Product 3", 30.00);
-        Product product4 = new Product(4, "Product 4", 40.00);
-        Product product5 = new Product(5, "Product 5", 50.00);
-        Product product6 = new Product(6, "Product 6", 60.00);
+        products.add(new Product(1, "Product 1", 10.00));
+        products.add(new Product(2, "Product 2", 20.00));
+        products.add(new Product(3, "Product 3", 30.00));
+        products.add(new Product(4, "Product 4", 40.00));
+        products.add(new Product(5, "Product 5", 50.00));
+        products.add(new Product(6, "Product 6", 60.00));
         System.out.println("==============");
         System.out.println("PRODUCTS");
         System.out.println("==============");
-        product1.showInfo();
-        product2.showInfo();
-        product3.showInfo();
-        product4.showInfo();
-        product5.showInfo();
-        product6.showInfo();
+        System.out.println(products.toString());
         System.out.println("==============");
     }
 
