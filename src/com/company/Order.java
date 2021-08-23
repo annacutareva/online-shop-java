@@ -9,6 +9,7 @@ public class Order {
     public static List<ShoppingCart> order = new ArrayList<>();
 
     public void addAll(ShoppingCart shoppingCart) {
+
         order.add(shoppingCart);
     }
 
