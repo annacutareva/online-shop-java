@@ -16,6 +16,8 @@ public class Main {
     static ShoppingCart shoppingCart = new ShoppingCart();
 
     public static void products() {
+
+        //creating products and adding them to the products list
         Product product1 = new Product();
 
         product1.setProductId(1);
@@ -56,6 +58,7 @@ public class Main {
 
         Products.add(product5);
 
+        //printing the products
         System.out.println("==============");
         System.out.println("PRODUCTS");
         System.out.println("==============");
@@ -63,6 +66,7 @@ public class Main {
         System.out.println("==============");
     }
 
+    //printing the menu
     public static void order() {
         for (int i = 1; i < 6; i++) {
             System.out.println("Press " + i + " for Product " + i);
@@ -83,6 +87,7 @@ public class Main {
             order();
         }
 
+        //adding selected products to the shopping cart
         for(int i = 0 ; i < Products.size() ; i++) {
             if (Products.get(i).getProductId() == choose && !shoppingCart.contains(Products.get(i))) {
                 shoppingCart.add(Products.get(i));
@@ -100,8 +105,12 @@ public class Main {
             placeOrder = input.next();
             if (placeOrder.equalsIgnoreCase("y")) {
                 System.out.println("Thank you. Your order has been placed.");
+
+                //creating a new order and adding items from shopping cart to the order
                 Order order = new Order();
                 order.addAll(shoppingCart);
+
+                //printing the order information
                 System.out.println("Your order: ");
                 order.getOrderInfo();
             } else {
