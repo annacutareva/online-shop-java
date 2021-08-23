@@ -10,7 +10,7 @@ public class Main {
     public static String continueShopping, addToCart, placeOrder;
     public static int choose, quantity = 1;
     public static double total = 0;
-    public static double[] prices = {0.00, 10.00, 20.00, 30.00, 40.00, 50.00, 60.00};
+    public static double[] prices = {0.00, 2.00, 8.00, 18.00, 6.00, 11.00};
 
     public static List<Product> Products = new ArrayList<>();
     static ShoppingCart shoppingCart = new ShoppingCart();
@@ -68,7 +68,7 @@ public class Main {
             System.out.println("Press " + i + " for Product " + i);
         }
         choose = input.nextInt();
-        if (choose > 6) {
+        if (choose > 5) {
             System.out.println("There is no product available");
             order();
         }
@@ -83,8 +83,13 @@ public class Main {
             order();
         }
 
-        //shoppingCart.add("Product " + choose + " - " + quantity + " pcs");
-        shoppingCart.add(new Product(choose, "Product#" + choose, prices[choose]));
+        for(int i = 0 ; i < Products.size() ; i++) {
+            if (Products.get(i).getProductId() == choose) {
+                shoppingCart.add(Products.get(i));
+            }
+        }
+
+        //shoppingCart.add(new Product(choose, "Product#" + choose, prices[choose]));
 
         total += quantity * prices[choose];
         System.out.println("Would you like to continue shopping? Press Y for Yes or N for No");
@@ -97,6 +102,10 @@ public class Main {
             placeOrder = input.next();
             if (placeOrder.equalsIgnoreCase("y")) {
                 System.out.println("Thank you. Your order has been placed.");
+                Order order = new Order();
+                order.addAll(shoppingCart);
+                shoppingCart.clear();
+                order.getOrderInfo();
             } else {
                 System.out.println("Your order has been canceled.");
             }
