@@ -89,8 +89,6 @@ public class Main {
             }
         }
 
-        //shoppingCart.add(new Product(choose, "Product#" + choose, prices[choose]));
-
         total += quantity * prices[choose];
         System.out.println("Would you like to continue shopping? Press Y for Yes or N for No");
         continueShopping = input.next();
@@ -104,7 +102,7 @@ public class Main {
                 System.out.println("Thank you. Your order has been placed.");
                 Order order = new Order();
                 order.addAll(shoppingCart);
-                shoppingCart.clear();
+                System.out.println("Your order: ");
                 order.getOrderInfo();
             } else {
                 System.out.println("Your order has been canceled.");
