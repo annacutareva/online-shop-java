@@ -21,4 +21,8 @@ public class ShoppingCart {
     public void clear() {
         cart.clear();
     }
+
+    public boolean contains(Product product) {
+        return cart.contains(product);
+    }
 }

@@ -84,7 +84,7 @@ public class Main {
         }
 
         for(int i = 0 ; i < Products.size() ; i++) {
-            if (Products.get(i).getProductId() == choose) {
+            if (Products.get(i).getProductId() == choose && !shoppingCart.contains(Products.get(i))) {
                 shoppingCart.add(Products.get(i));
             }
         }
