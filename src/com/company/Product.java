@@ -2,9 +2,15 @@ package com.company;
 
 public class Product {
 
-    public int id;
-    public String name;
-    public double price;
+    private int id;
+    private String name;
+    private double price;
+
+    public Product() {
+        this.id = -1;
+        this.name = null;
+        this.price = -1;
+    }
 
     public Product(int id, String name, double price) {
         this.id = id;
@@ -12,32 +18,36 @@ public class Product {
         this.price = price;
     }
 
-    public String toString() {
-
-        return "Name: " + this.name + " Price: $" + this.price + '\n';
-    }
-
-    public int getId() {
+    public int getProductId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setProductId(int id) {
+
         this.id = id;
     }
 
-    public String getName() {
+    public String getProductName() {
+
         return name;
     }
 
-    public void setName(String name) {
+    public void setProductName(String name) {
+
         this.name = name;
     }
 
-    public double getPrice() {
+    public double getProductPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setProductPrice(double price) {
+
         this.price = price;
+    }
+    @Override
+    public String toString() {
+        return this.getProductId() + " Product Name: " + this.getProductName() +
+                ", Product Price: $" + this.getProductPrice() + "\n";
     }
 }

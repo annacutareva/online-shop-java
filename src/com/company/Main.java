@@ -1,6 +1,7 @@
 package com.company;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -11,24 +12,59 @@ public class Main {
     public static double total = 0;
     public static double[] prices = {0.00, 10.00, 20.00, 30.00, 40.00, 50.00, 60.00};
 
-    public static ArrayList<Product> products = new ArrayList<>();
+    public static List<Product> Products = new ArrayList<>();
+    static ShoppingCart shoppingCart = new ShoppingCart();
 
     public static void products() {
-        products.add(new Product(1, "Product 1", 10.00));
-        products.add(new Product(2, "Product 2", 20.00));
-        products.add(new Product(3, "Product 3", 30.00));
-        products.add(new Product(4, "Product 4", 40.00));
-        products.add(new Product(5, "Product 5", 50.00));
-        products.add(new Product(6, "Product 6", 60.00));
+        Product product1 = new Product();
+
+        product1.setProductId(1);
+        product1.setProductName("Apple");
+        product1.setProductPrice(2.00);
+
+        Products.add(product1);
+
+        Product product2 = new Product();
+
+        product2.setProductId(2);
+        product2.setProductName("Banana");
+        product2.setProductPrice(8.00);
+
+        Products.add(product2);
+
+        Product product3 = new Product();
+
+        product3.setProductId(3);
+        product3.setProductName("Pineapple");
+        product3.setProductPrice(18.00);
+
+        Products.add(product3);
+
+        Product product4 = new Product();
+
+        product4.setProductId(4);
+        product4.setProductName("Orange");
+        product4.setProductPrice(6.00);
+
+        Products.add(product4);
+
+        Product product5 = new Product();
+
+        product5.setProductId(5);
+        product5.setProductName("Cherry");
+        product5.setProductPrice(11.00);
+
+        Products.add(product5);
+
         System.out.println("==============");
         System.out.println("PRODUCTS");
         System.out.println("==============");
-        System.out.println(products.toString());
+        System.out.println(Products);
         System.out.println("==============");
     }
 
     public static void order() {
-        for (int i = 1; i < 7; i++) {
+        for (int i = 1; i < 6; i++) {
             System.out.println("Press " + i + " for Product " + i);
         }
         choose = input.nextInt();
@@ -46,8 +82,6 @@ public class Main {
         } else {
             order();
         }
-
-        ShoppingCart shoppingCart = new ShoppingCart();
 
         //shoppingCart.add("Product " + choose + " - " + quantity + " pcs");
         shoppingCart.add(new Product(choose, "Product#" + choose, prices[choose]));
