@@ -3,6 +3,7 @@ package com.company;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.stream.IntStream;
 
 public class Main {
 
@@ -66,11 +67,10 @@ public class Main {
         System.out.println("==============");
     }
 
-    //printing the menu
     public static void order() {
-        for (int i = 1; i < 6; i++) {
-            System.out.println("Press " + i + " for Product " + i);
-        }
+        //printing the menu
+        IntStream.range(1, 6).forEach(i -> System.out.println("Press " + i + " for Product " + i));
+
         choose = input.nextInt();
         if (choose > 5) {
             System.out.println("There is no product available");
