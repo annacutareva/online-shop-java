@@ -68,7 +68,6 @@ public class Main {
     }
 
     public static void order() {
-
         //printing the menu
         IntStream.range(1, 6).forEach(i -> System.out.println("Press " + i + " for Product " + i));
 
