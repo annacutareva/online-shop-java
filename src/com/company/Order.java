@@ -14,8 +14,6 @@ public class Order {
     }
 
     public void getOrderInfo() {
-        for(ShoppingCart cart : order) {
-            cart.getCartInfo();
-        }
+        order.forEach(ShoppingCart::getCartInfo);
     }
 }
