@@ -13,9 +13,7 @@ public class ShoppingCart {
     }
 
     public void getCartInfo() {
-        for(Product product : cart) {
-            System.out.println(product.getProductName());
-        }
+        cart.forEach(product -> System.out.println(product.getProductName()));
     }
 
     public void clear() {
