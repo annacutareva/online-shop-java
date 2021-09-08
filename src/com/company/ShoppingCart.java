@@ -21,6 +21,7 @@ public class ShoppingCart {
     }
 
     public boolean contains(Product product) {
+
         return cart.contains(product);
     }
 }

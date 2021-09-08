@@ -23,12 +23,10 @@ public class Product {
     }
 
     public void setProductId(int id) {
-
         this.id = id;
     }
 
     public String getProductName() {
-
         return name;
     }
 

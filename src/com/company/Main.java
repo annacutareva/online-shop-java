@@ -19,43 +19,43 @@ public class Main {
     public static void products() {
 
         //creating products and adding them to the products list
-        Product product1 = new Product();
+        Product product1 = new Product(1, "Apple", 2.00);
 
-        product1.setProductId(1);
-        product1.setProductName("Apple");
-        product1.setProductPrice(2.00);
+//        product1.setProductId(1);
+//        product1.setProductName("Apple");
+//        product1.setProductPrice(2.00);
 
         Products.add(product1);
 
-        Product product2 = new Product();
+        Product product2 = new Product(2, "Banana", 8.00);
 
-        product2.setProductId(2);
-        product2.setProductName("Banana");
-        product2.setProductPrice(8.00);
+//        product2.setProductId(2);
+//        product2.setProductName("Banana");
+//        product2.setProductPrice(8.00);
 
         Products.add(product2);
 
-        Product product3 = new Product();
+        Product product3 = new Product(3, "Pineapple", 18.00);
 
-        product3.setProductId(3);
-        product3.setProductName("Pineapple");
-        product3.setProductPrice(18.00);
+//        product3.setProductId(3);
+//        product3.setProductName("Pineapple");
+//        product3.setProductPrice(18.00);
 
         Products.add(product3);
 
-        Product product4 = new Product();
+        Product product4 = new Product(4, "Orange", 6.00);
 
-        product4.setProductId(4);
-        product4.setProductName("Orange");
-        product4.setProductPrice(6.00);
+//        product4.setProductId(4);
+//        product4.setProductName("Orange");
+//        product4.setProductPrice(6.00);
 
         Products.add(product4);
 
-        Product product5 = new Product();
+        Product product5 = new Product(5, "Cherry", 11.00);
 
-        product5.setProductId(5);
-        product5.setProductName("Cherry");
-        product5.setProductPrice(11.00);
+//        product5.setProductId(5);
+//        product5.setProductName("Cherry");
+//        product5.setProductPrice(11.00);
 
         Products.add(product5);
 
@@ -88,9 +88,9 @@ public class Main {
         }
 
         //adding selected products to the shopping cart
-        for(int i = 0 ; i < Products.size() ; i++) {
-            if (Products.get(i).getProductId() == choose && !shoppingCart.contains(Products.get(i))) {
-                shoppingCart.add(Products.get(i));
+        for (Product product : Products) {
+            if (product.getProductId() == choose && !shoppingCart.contains(product)) {
+                shoppingCart.add(product);
             }
         }
 
@@ -100,7 +100,6 @@ public class Main {
         if (continueShopping.equalsIgnoreCase("y")) {
             order();
         } else {
-            System.out.println("Your total is " + total + "$");
             System.out.println("Would you like to place an order? Press Y for Yes or N for No");
             placeOrder = input.next();
             if (placeOrder.equalsIgnoreCase("y")) {
@@ -113,6 +112,7 @@ public class Main {
                 //printing the order information
                 System.out.println("Your order: ");
                 order.getOrderInfo();
+                System.out.println("Your total is " + total + "$");
             } else {
                 System.out.println("Your order has been canceled.");
             }
