@@ -12,15 +12,15 @@ public class ShoppingCart {
         cart.add(product);
     }
 
-    public void getCartInfo() {
+    void getCartInfo() {
         cart.forEach(product -> System.out.println(product.getProductName()));
     }
 
-    public void clear() {
-        cart.clear();
-    }
+//    void clear() {
+//        cart.clear();
+//    }
 
-    public boolean contains(Product product) {
+    boolean cartContains(Product product) {
         return cart.contains(product);
     }
 }

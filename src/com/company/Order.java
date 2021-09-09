@@ -6,14 +6,13 @@ import java.util.List;
 
 public class Order {
 
-    public static List<ShoppingCart> order = new ArrayList<>();
+    List<ShoppingCart> order = new ArrayList<>();
 
-    public void addAll(ShoppingCart shoppingCart) {
-
+    void addToOrder(ShoppingCart shoppingCart) {
         order.add(shoppingCart);
     }
 
-    public void getOrderInfo() {
+    void getOrderInfo() {
         order.forEach(ShoppingCart::getCartInfo);
     }
 }
