@@ -2,47 +2,46 @@ package com.company;
 
 public class Product {
 
-    private int id;
-    private String name;
-    private double price;
+    int id;
+    String name;
+    double price;
 
-    public Product() {
-        this.id = -1;
-        this.name = null;
-        this.price = -1;
-    }
+//    public Product() {
+//        this.id = -1;
+//        this.name = null;
+//        this.price = -1;
+//    }
 
-    public Product(int id, String name, double price) {
+    Product(int id, String name, double price) {
         this.id = id;
         this.name = name;
         this.price = price;
     }
 
-    public int getProductId() {
+    int getProductId() {
         return id;
     }
 
-    public void setProductId(int id) {
+    void setProductId(int id) {
         this.id = id;
     }
 
-    public String getProductName() {
+    String getProductName() {
         return name;
     }
 
-    public void setProductName(String name) {
-
+    void setProductName(String name) {
         this.name = name;
     }
 
-    public double getProductPrice() {
+    double getProductPrice() {
         return price;
     }
 
-    public void setProductPrice(double price) {
-
+    void setProductPrice(double price) {
         this.price = price;
     }
+
     @Override
     public String toString() {
         return this.getProductId() + " Product Name: " + this.getProductName() +

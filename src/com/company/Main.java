@@ -8,10 +8,11 @@ import java.util.stream.IntStream;
 public class Main {
 
     public static Scanner input = new Scanner(System.in);
+
     public static String continueShopping, addToCart, placeOrder;
     public static int choose, quantity = 1;
-    public static double total = 0;
-    public static double[] prices = {0.00, 2.00, 8.00, 18.00, 6.00, 11.00};
+    public static double total = 0.00;
+    public static double[] prices = {0.00, 2.10, 8.25, 18.90, 6.00, 11.30};
 
     public static List<Product> Products = new ArrayList<>();
     static ShoppingCart shoppingCart = new ShoppingCart();
@@ -19,7 +20,7 @@ public class Main {
     public static void products() {
 
         //creating products and adding them to the products list
-        Product product1 = new Product(1, "Apple", 2.00);
+        Product product1 = new Product(1, "Apple", 2.10);
 
 //        product1.setProductId(1);
 //        product1.setProductName("Apple");
@@ -27,7 +28,7 @@ public class Main {
 
         Products.add(product1);
 
-        Product product2 = new Product(2, "Banana", 8.00);
+        Product product2 = new Product(2, "Banana", 8.25);
 
 //        product2.setProductId(2);
 //        product2.setProductName("Banana");
@@ -35,7 +36,7 @@ public class Main {
 
         Products.add(product2);
 
-        Product product3 = new Product(3, "Pineapple", 18.00);
+        Product product3 = new Product(3, "Pineapple", 18.90);
 
 //        product3.setProductId(3);
 //        product3.setProductName("Pineapple");
@@ -51,7 +52,7 @@ public class Main {
 
         Products.add(product4);
 
-        Product product5 = new Product(5, "Cherry", 11.00);
+        Product product5 = new Product(5, "Cherry", 11.30);
 
 //        product5.setProductId(5);
 //        product5.setProductName("Cherry");
@@ -89,7 +90,7 @@ public class Main {
 
         //adding selected products to the shopping cart
         for (Product product : Products) {
-            if (product.getProductId() == choose && !shoppingCart.contains(product)) {
+            if (product.getProductId() == choose && !shoppingCart.cartContains(product)) {
                 shoppingCart.add(product);
             }
         }
@@ -107,7 +108,7 @@ public class Main {
 
                 //creating a new order and adding items from shopping cart to the order
                 Order order = new Order();
-                order.addAll(shoppingCart);
+                order.addToOrder(shoppingCart);
 
                 //printing the order information
                 System.out.println("Your order: ");
