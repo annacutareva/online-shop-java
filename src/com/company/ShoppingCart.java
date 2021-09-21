@@ -4,12 +4,13 @@ package com.company;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ShoppingCart {
+class ShoppingCart {
 
-    public static List<Product> cart = new ArrayList<>();
+    List<Product> cart = new ArrayList<>();
 
-    public void add(Product product) {
+    void add(Product product) {
         cart.add(product);
+        System.out.println("Adding to cart Product# " + product.id + " Name: " + product.name + " Price: " + product.price);
     }
 
     void getCartInfo() {

@@ -3,9 +3,10 @@ package com.company;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.concurrent.ThreadLocalRandom;
 import java.util.stream.IntStream;
 
-public class Main {
+class Main {
 
     public static Scanner input = new Scanner(System.in);
 
@@ -19,57 +20,32 @@ public class Main {
 
     public static void products() {
 
-        //creating products and adding them to the products list
-        Product product1 = new Product(1, "Apple", 2.10);
-
-//        product1.setProductId(1);
-//        product1.setProductName("Apple");
-//        product1.setProductPrice(2.00);
-
-        Products.add(product1);
-
-        Product product2 = new Product(2, "Banana", 8.25);
-
-//        product2.setProductId(2);
-//        product2.setProductName("Banana");
-//        product2.setProductPrice(8.00);
-
-        Products.add(product2);
-
-        Product product3 = new Product(3, "Pineapple", 18.90);
-
-//        product3.setProductId(3);
-//        product3.setProductName("Pineapple");
-//        product3.setProductPrice(18.00);
-
-        Products.add(product3);
-
-        Product product4 = new Product(4, "Orange", 6.00);
-
-//        product4.setProductId(4);
-//        product4.setProductName("Orange");
-//        product4.setProductPrice(6.00);
-
-        Products.add(product4);
-
-        Product product5 = new Product(5, "Cherry", 11.30);
-
-//        product5.setProductId(5);
-//        product5.setProductName("Cherry");
-//        product5.setProductPrice(11.00);
-
-        Products.add(product5);
-
         //printing the products
         System.out.println("==============");
         System.out.println("PRODUCTS");
         System.out.println("==============");
-        System.out.println(Products);
+
+        //creating products and adding them to the products list
+        Product product1 = new Product(1, "Apple", 2.10);
+        Products.add(product1);
+
+        Product product2 = new Product(2, "Banana", 8.25);
+        Products.add(product2);
+
+        Product product3 = new Product(3, "Pineapple", 18.90);
+        Products.add(product3);
+
+        Product product4 = new Product(4, "Orange", 6.00);
+        Products.add(product4);
+
+        Product product5 = new Product(5, "Cherry", 11.30);
+        Products.add(product5);
+
         System.out.println("==============");
     }
 
     public static void order() {
-        //printing the menu
+
         IntStream.range(1, 6).forEach(i -> System.out.println("Press " + i + " for Product " + i));
 
         choose = input.nextInt();
@@ -78,21 +54,21 @@ public class Main {
             order();
         }
 
+        //selecting products and quantity
         System.out.println("Please choose quantity:");
         quantity = input.nextInt();
         System.out.println("You chose Product# " + choose + ". Would you like to add it to the cart? Press Y for Yes or N for No");
         addToCart = input.next();
-        if (addToCart.equalsIgnoreCase("y")) {
-            System.out.println("Adding to cart Product# " + choose + " - " + quantity + "pcs");
-        } else {
-            order();
-        }
 
         //adding selected products to the shopping cart
-        for (Product product : Products) {
-            if (product.getProductId() == choose && !shoppingCart.cartContains(product)) {
-                shoppingCart.add(product);
+        if (addToCart.equalsIgnoreCase("y")) {
+            for (Product product : Products) {
+                if (product.getProductId() == choose && !shoppingCart.cartContains(product)) {
+                    shoppingCart.add(product);
+                }
             }
+        } else {
+            order();
         }
 
         total += quantity * prices[choose];
@@ -108,12 +84,13 @@ public class Main {
 
                 //creating a new order and adding items from shopping cart to the order
                 Order order = new Order();
-                order.addToOrder(shoppingCart);
+                order.add(shoppingCart);
 
                 //printing the order information
-                System.out.println("Your order: ");
+                int orderNumber = ThreadLocalRandom.current().nextInt(1, 100);
+                System.out.println("Order# " + orderNumber);
                 order.getOrderInfo();
-                System.out.println("Your total is " + total + "$");
+                System.out.println("Total: " + total + "$");
             } else {
                 System.out.println("Your order has been canceled.");
             }

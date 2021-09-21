@@ -1,6 +1,6 @@
 package com.company;
 
-public class Product {
+class Product {
 
     int id;
     String name;
@@ -13,6 +13,7 @@ public class Product {
 //    }
 
     Product(int id, String name, double price) {
+        System.out.println("Product # " + id + " - " + name + ", Price: $" + price);
         this.id = id;
         this.name = name;
         this.price = price;
@@ -42,9 +43,9 @@ public class Product {
         this.price = price;
     }
 
-    @Override
-    public String toString() {
-        return this.getProductId() + " Product Name: " + this.getProductName() +
-                ", Product Price: $" + this.getProductPrice() + "\n";
-    }
+//    @Override
+//    public String toString() {
+//        return this.getProductId() + "-Product Name: " + this.getProductName() +
+//                ", Product Price: $" + this.getProductPrice() + "\n";
+//    }
 }

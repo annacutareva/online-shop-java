@@ -4,11 +4,11 @@ package com.company;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Order {
+class Order {
 
     List<ShoppingCart> order = new ArrayList<>();
 
-    void addToOrder(ShoppingCart shoppingCart) {
+    void add(ShoppingCart shoppingCart) {
         order.add(shoppingCart);
     }
 
